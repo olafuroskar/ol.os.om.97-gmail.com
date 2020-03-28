@@ -3,9 +3,9 @@
 #include <algorithm>
 #include <random>
 #include <set>
-/**** gp *****/
+/**** gp *****
 #include "gnuplot-iostream/gnuplot-iostream.h"
-/**************/
+**************/
 using namespace std;
 
 typedef vector<int> vi;
@@ -582,10 +582,10 @@ double stddev(vi res, int mean) {
 
 void prettyOutput(int n, int pt)
 {
-    /**** gp *****/
+    /**** gp *****
     Gnuplot gp;
     vector<pair<double, double> > xy_pts;
-    /**************/
+    **************/
 
     vector<string> titles{"Heimskasta", "Minna heimsk", "Klára"};
     vi results;
@@ -619,9 +619,9 @@ void prettyOutput(int n, int pt)
         minimum = min(b, minimum);
         cout << (i + 1) << "\t\t" << ((b >= 70) ? RED : ((b >= 50) ? YELLOW : GREEN)) << b << "\033[0m" << endl;
         total += b;
-        /**** gp *****/
+        /**** gp *****
         xy_pts.push_back(make_pair(i + 1, b));
-        /**************/
+        **************/
     }
 
 
@@ -631,7 +631,7 @@ void prettyOutput(int n, int pt)
     cout << BOLD << "Max:\t" << maximum << endl;
     cout << BOLD << "Min:\t" << minimum << RESET << endl;
 
-    /**** gp *****/
+    /**** gp *****
     gp << "set terminal png\nset output \"bs" << pt << ".png\"\n";
     gp << "set title \"" << titles[pt] << " aðferðin\"\n";
     gp << "set xlabel \"Ítrun i\"\n";
@@ -639,7 +639,7 @@ void prettyOutput(int n, int pt)
     gp << "set xrange [" << 1 << ":" << n << "]\nset yrange [" << 0 << ":100]\n";
     gp << "plot '-' with lines title 'Sprengjufjöldi'\n";
     gp.send1d(xy_pts);
-    /**************/
+    **************/
 }
 
 int main() {
